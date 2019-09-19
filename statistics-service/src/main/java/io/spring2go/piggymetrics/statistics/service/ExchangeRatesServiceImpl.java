@@ -1,10 +1,6 @@
 package io.spring2go.piggymetrics.statistics.service;
 
-import com.dianping.cat.Cat;
-import com.dianping.cat.CatConstants;
-import com.dianping.cat.message.Transaction;
 import com.google.common.collect.ImmutableMap;
-
 import io.spring2go.piggymetrics.statistics.CatAnnotation;
 import io.spring2go.piggymetrics.statistics.client.ExchangeRatesClient;
 import io.spring2go.piggymetrics.statistics.domain.Currency;
@@ -38,20 +34,7 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
 	public Map<Currency, BigDecimal> getCurrentRates() {
 
 		if (container == null || !container.getDate().equals(LocalDate.now())) {
-			
-			Transaction dbTransaction = Cat.newTransaction(CatConstants.TYPE_REMOTE_CALL, "get_current_rates");
-
-			try {
-				container = client.getRates(Currency.getBase());
-				log.info("exchange rates has been updated: {}", container);
-				dbTransaction.setStatus(Transaction.SUCCESS);
-			} catch (Exception e) {
-				Cat.getProducer().logError(e);
-				dbTransaction.setStatus(e);
-				throw e;
-			} finally {
-				dbTransaction.complete();
-			}
+			container = client.getRates(Currency.getBase());
 		}
 
 		return ImmutableMap.of(

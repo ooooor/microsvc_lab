@@ -21,7 +21,7 @@
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.M1</spring-cloud.version>
 		<apollo.version>1.0.0</apollo.version>
-		<cat.version>3.0.0</cat.version>
+<!--		<cat.version>3.0.0</cat.version>-->
 	</properties>
 
 	<dependencyManagement>
@@ -40,11 +40,11 @@
 			  <version>${apollo.version}</version>
 		    </dependency>
 		    <!-- cat -->
-			<dependency>
-			    <groupId>com.dianping.cat</groupId>
-			    <artifactId>cat-client</artifactId>
-			    <version>${cat.version}</version>
-			</dependency>   
+<!--			<dependency>-->
+<!--			    <groupId>com.dianping.cat</groupId>-->
+<!--			    <artifactId>cat-client</artifactId>-->
+<!--			    <version>${cat.version}</version>-->
+<!--			</dependency>   -->
 		  </dependencies>
 	</dependencyManagement>
 	
@@ -53,10 +53,10 @@
 		<groupId>com.ctrip.framework.apollo</groupId>
 		<artifactId>apollo-client</artifactId>
       </dependency>
-	  <dependency>
-	    <groupId>com.dianping.cat</groupId>
-	    <artifactId>cat-client</artifactId>
-	  </dependency>
+<!--	  <dependency>-->
+<!--	    <groupId>com.dianping.cat</groupId>-->
+<!--	    <artifactId>cat-client</artifactId>-->
+<!--	  </dependency>-->
 	</dependencies>
 	
 	<build>
