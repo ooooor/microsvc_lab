@@ -54,7 +54,7 @@
 
 * 导入基础数据
 
-       ```sql
+```
 use admin
 show dbs
 
@@ -178,7 +178,7 @@ db.accounts.update(
 );
 
 print('dump complete');
-       ```
+```
 
 3. skywalking
 
@@ -190,7 +190,7 @@ print('dump complete');
 
    * 下载skywalking 6.4.0版本：http://skywalking.apache.org/downloads/
    * 修改webapp/webapp.yml中，8080端口为8888
-   * bin/start.sh启动skywalking
+   * depend/skywalking/apache-skywalking-apm-bin/bin/start.sh启动skywalking
    * http://localhost:8888/
 
 4. gravitee
@@ -218,7 +218,31 @@ print('dump complete');
    * 启动gravitee
 
      ```
-     
+     ./gravitee-server runserver
+     ```
+
+5. consul
+
+   * 启动consul
+
+     ```
+     depend/consul/consul/consul agent -dev
+     ```
+
+6. cat
+
+   * 启动cat-mysql
+
+     ```
+     cd depend/cat/docker-mysql
+     docker-compose up -d
+     ```
+
+   * 启动cat
+
+     ```
+     cd depend/cat/docker-cat
+     docker-compose up -d
      ```
 
      
